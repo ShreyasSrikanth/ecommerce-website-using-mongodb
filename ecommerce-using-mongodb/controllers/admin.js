@@ -72,8 +72,10 @@ exports.postEditProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
-  req.user
-    .getProducts()
+  const prodId = req.params.productId;
+  // req.user
+  //   .getProducts()
+  Product.fetchAll()
     .then(products => {
       res.render('admin/products', {
         prods: products,
